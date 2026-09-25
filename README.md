@@ -5,7 +5,7 @@ Adds media metadata columns to Nautilus (GNOME Files) list view for **images, vi
 Supported metadata includes **Dimensions, Duration, FPS (Framerate), Title, Artist, Album, Album Artist, Track, and Genre**. Metadata is read using GNOME-native libraries, GStreamer, and Mutagen, and cached for performance.
 
 <p align="center">
-  <img src="assets/media-columns.png" width="80%" alt="Media Columns Example">
+    <img src="assets/media-columns.png" width="80%" alt="Media Columns Example">
 </p>
 
 ***
@@ -96,20 +96,20 @@ sudo pacman -S python-mutagen
 Create the Nautilus Python extension directory:
 
 ```bash
-    mkdir -p ~/.local/share/nautilus-python/extensions
+mkdir -p ~/.local/share/nautilus-python/extensions
 ```
 
 Download the extension:
 
 ```bash
-    wget https://raw.githubusercontent.com/angelside/nautilus-media-columns-extension/main/nautilus-media-columns.py \
-      -O ~/.local/share/nautilus-python/extensions/nautilus-media-columns.py
+wget https://raw.githubusercontent.com/angelside/nautilus-media-columns-extension/main/nautilus-media-columns.py \
+    -O ~/.local/share/nautilus-python/extensions/nautilus-media-columns.py
 ```
 
 Restart Nautilus:
 
 ```bash
-    nautilus -q
+nautilus -q
 ```
 
 Then:
@@ -141,7 +141,7 @@ Available columns include:
 Cache database location:
 
 ```bash
-    ~/.cache/nautilus-media-columns/media.sqlite3
+~/.cache/nautilus-media-columns/media.sqlite3
 ```
 
 The cache is safe to delete at any time. It will be recreated automatically.
@@ -227,7 +227,7 @@ Audio duration is obtained from the file's audio information and does not requir
 First restart Nautilus:
 
 ```bash
-    nautilus -q
+nautilus -q
 ```
 
 Make sure you are using **List View** and check **Visible Columns**.
@@ -235,7 +235,7 @@ Make sure you are using **List View** and check **Visible Columns**.
 If the columns still do not appear, check the user journal:
 
 ```bash
-    journalctl --user -f -t nautilus-media-columns
+journalctl --user -f -t nautilus-media-columns
 ```
 
 ### Mutagen is missing
@@ -251,19 +251,19 @@ install the Mutagen package for your distribution.
 Ubuntu/Debian:
 
 ```bash
-    sudo apt install python3-mutagen
+sudo apt install python3-mutagen
 ```
 
 Arch/CachyOS:
 
 ```bash
-    sudo pacman -S python-mutagen
+sudo pacman -S python-mutagen
 ```
 
 Then restart Nautilus:
 
 ```bash
-    nautilus -q
+nautilus -q
 ```
 
 ### GStreamer / GstPbutils is missing
@@ -271,7 +271,7 @@ Then restart Nautilus:
 If you see:
 
 ```
-    ValueError: Namespace GstPbutils not available
+ValueError: Namespace GstPbutils not available
 ```
 
 install the GStreamer GObject Introspection typelib.
@@ -279,7 +279,7 @@ install the GStreamer GObject Introspection typelib.
 Ubuntu/Debian:
 
 ```bash
-    sudo apt install gir1.2-gst-plugins-base-1.0
+sudo apt install gir1.2-gst-plugins-base-1.0
 ```
 
 Then restart Nautilus.
@@ -291,9 +291,9 @@ Video probing depends on the installed GStreamer plugins.
 You may need additional GStreamer packages, for example:
 
 ```bash
-    sudo apt install \
-      gstreamer1.0-libav \
-      gstreamer1.0-plugins-ugly
+sudo apt install \
+    gstreamer1.0-libav \
+    gstreamer1.0-plugins-ugly
 ```
 
 Package names vary by distribution.
@@ -326,7 +326,7 @@ Install the GExiv2 GI bindings if they are available for your distribution.
 ### View normal logs
 
 ```bash
-    journalctl --user -f -t nautilus-media-columns
+journalctl --user -f -t nautilus-media-columns
 ```
 
 Shows:
@@ -338,19 +338,19 @@ Shows:
 ### Enable debug logging
 
 ```bash
-    G_MESSAGES_DEBUG=nautilus-media-columns nautilus
+G_MESSAGES_DEBUG=nautilus-media-columns nautilus
 ```
 
 Or:
 
 ```bash
-    journalctl --user -f -t nautilus-media-columns -p debug
+journalctl --user -f -t nautilus-media-columns -p debug
 ```
 
 ### View debug output directly in the terminal
 
 ```bash
-    G_MESSAGES_DEBUG=nautilus-media-columns nautilus 2>&1 | grep -i nautilus-media-columns
+G_MESSAGES_DEBUG=nautilus-media-columns nautilus 2>&1 | grep -i nautilus-media-columns
 ```
 
 ### Debug logging includes
